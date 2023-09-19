@@ -32,7 +32,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 DEBUG = True
 
 ALLOWED_HOSTS = ['8000-amengemechu-pp4-restaura-op42m48vlb.us2.codeanyapp.com',
-                 'restaurant-exotic-cuisine.herokuapp.com', 'localhost']
+                 'restaurant-exotic-cuisine-7d2d24292bd7.herokuapp.com', 'localhost']
 
 
 # Application definition
