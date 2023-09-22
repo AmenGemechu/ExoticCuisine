@@ -15,7 +15,12 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from exotic_cuisine.views import get_base
+from exotic_cuisine.views import get_home
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', get_base, name='get_base'),
+    path('', get_home, name='get_home')
 ]
