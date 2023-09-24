@@ -1,4 +1,16 @@
 {% extends "base.html" %} {% load static %} {% block content %}
+
+<!--Test-->
+<div>
+  <table>
+    {% for bookings in bookings %}
+    <tr>
+      <td>{{ bookings.username }}</td>
+    </tr>
+    {% endfor %}
+  </table>
+</div>
+
 <!-- Hero Slides -->
 <div id="home" class="carousel slide" data-bs-ride="carousel">
   <div class="carousel-inner">

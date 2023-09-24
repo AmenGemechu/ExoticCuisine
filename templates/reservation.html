@@ -1,5 +1,6 @@
 {% block content %}
 <!-- Reservation -->
+
 <section id="reservation">
   <div class="container">
     <div class="row justify-content-center">
@@ -14,6 +15,7 @@
     <form method="post" action="add" class="row justify-content-center">
       {% csrf_token %}
       <!--uniqe value for submit form to insure data is comming from our app -->
+
       <div class="col-lg-8">
         <div class="row g-3">
           <div class="form-group col-md-6">

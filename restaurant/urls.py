@@ -16,9 +16,14 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from exotic_cuisine.views import get_base
+from django.conf.urls.static import static
+from django.conf import settings
+
+from exotic_cuisine import views
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', get_base, name='get_base')
+    path('', get_base, name='get_base'),
+    path('test', views.allbookings, name='test'),
 ]
