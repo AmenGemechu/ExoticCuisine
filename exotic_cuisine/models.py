@@ -31,5 +31,28 @@ class Test3(models.Model):
     timeslot3 = models.IntegerField(null=False)
 
 
+class Reservation(models.Model):
+    template_name = "reservation.html"
+
+    def post(self, request):
+        fname = request.POST.get("fname")
+        lname = request.POST.get("fname")
+        email = request.POST.get("email")
+        message = request.POST.get("request")
+
+        reservation = Reservation.objects.create(
+            first_name=fname,
+            last_name=lname,
+            email=email,
+            request=message,
+        )
+
+        reservation.save()
+
+        messages.add_message(request, messages.SUCCESS,
+                             f"Thanks {fname} for making an reservation!")
+        return HttpResponseRedirect(request.path)
+
+
 def __str__(self):
     return self.username

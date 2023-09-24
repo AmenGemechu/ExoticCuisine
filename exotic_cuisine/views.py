@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from .models import Bookings
+from .models import Reservation
 
 
 def get_base(request):

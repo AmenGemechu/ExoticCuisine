@@ -18,7 +18,6 @@ from django.urls import path
 from exotic_cuisine.views import get_base
 from django.conf.urls.static import static
 from django.conf import settings
-
 from exotic_cuisine import views
 
 
