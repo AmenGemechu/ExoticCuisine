@@ -1,10 +1,38 @@
 from django.db import models
 from django.contrib.auth.models import User
-from cloudinary.models import CloudinaryField
+from django.urls import reverse
+from django.utils import timezone
+from cloudinary.models import CloudinaryField  # not needed anymore
 
-# Create your models here.
+# crud
 
 
+class exotic_cuisine(models.Model):
+    title = models.CharField(max_length=200)
+    excerpt = models.TextField(null=True)
+    authour = models.ForeignKey(
+        User, on_delete=models.CASCADE, related_name='exotic_cuisine')
+    slug = models.SlugField(max_length=100, unique=True)
+    update = models.DateTimeField(auto_now=True)
+    published = models.DateTimeField(default=timezone.now)
+
+
+# get url of a post
+def get_absolute_url(self):
+    return reverse('exotic_cuisine:single', args=[self.slug])
+
+
+# new post at the top
+class Meta:
+    ordering = ['-published']
+
+
+# display title instead of object
+def __str__(self):
+    return self.title
+
+
+# D
 class Bookings(models.Model):
     username = models.CharField(max_length=50)
     table_id = models.IntegerField(null=False)

@@ -1,0 +1,34 @@
+{% extends "base.html" %} {% block content %}
+
+<div class="album py-5 bg-light">
+  <div class="container">
+    <div class="row">
+      {% for exotic_cuisine in index %}
+      <div class="col-md-4">
+        <div class="card mb-4 box-shadow">
+          <img
+            class="card-img-top"
+            src="/static/images/cremy_Chicken.jpg"
+            alt="post-img"
+          />
+          <div class="card-body">
+            <h4 class="">
+              <a href="={{ exotic_cuisine.get_absolute_url }}"
+                >{{ exotic_cuisine.title }}</a
+              >
+            </h4>
+            <p class="card-text"></p>
+            <div class="d-flex justify-content-between align-items-center">
+              <div>
+                <small class="text-muted">9 mins</small>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+{% endblock%}
