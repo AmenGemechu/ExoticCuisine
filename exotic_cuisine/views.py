@@ -21,6 +21,12 @@ class SingleView(DeleteView):
     context_object_name = 'post'
 
 
+class PostsView(ListView):
+    model = exotic_cuisine
+    template_name = 'posts.html'
+    context_object_name = 'post_list'
+
+
 # def get_base(request):
  #   return render(request, 'home.html')
 
