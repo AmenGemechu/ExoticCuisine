@@ -3,7 +3,7 @@ name: User Story
 about: User story template
 title: User Story
 labels: ''
-assignees: ''
+assignees: AmenGemechu
 
 ---
 
