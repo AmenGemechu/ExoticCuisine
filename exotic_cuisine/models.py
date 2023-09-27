@@ -8,12 +8,12 @@ from cloudinary.models import CloudinaryField  # not needed anymore
 
 
 class exotic_cuisine(models.Model):
-    title = models.CharField(max_length=200)
+    title = models.CharField(max_length=200)  # post
     excerpt = models.TextField(null=True)
     authour = models.ForeignKey(
-        User, on_delete=models.CASCADE, related_name='exotic_cuisine')
+        User, on_delete=models.CASCADE, related_name='exotic_cuisine')  # connecting user to post
     slug = models.SlugField(max_length=100, unique=True)
-    updated = models.DateTimeField(auto_now=True)
+    update = models.DateTimeField(auto_now=True)  # last post
     published = models.DateTimeField(default=timezone.now)
 
 

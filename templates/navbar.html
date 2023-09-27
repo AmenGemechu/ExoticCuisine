@@ -1,33 +1,27 @@
-<div class="container-fluide">
-  <!-- Navbar -->
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
-    <a href="#" class="navbar-brand d-flex align-items-center">
-      <img src="static/images/exotic_cuisine_logo.png" />
-    </a>
-    <!-- Align right-->
-    <button
-      class="navbar-toggler"
-      type="button"
-      data-bs-toggle="collapse"
-      data-bs-target="#navbarSupprottedContent"
-      aria-controls="navbarTogglerDemo01"
-      aria-expanded="false"
-      aria-label="Toggle navigation"
-    >
-      <span class="navbar-toggler-icon"></span>
-    </button>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" href="#">Exotic Cuisine</a>
+  <button
+    class="navbar-toggler"
+    type="button"
+    data-toggle="collapse"
+    data-target="#navbarSupportedContent"
+    aria-controls="navbarSupportedContent"
+    aria-expanded="false"
+    aria-label="Toggle navigation"
+  >
+    <span class="navbar-toggler-icon"></span>
+  </button>
 
-    <div class="collapse navbar-collapse" id="navbarSupprottedContent">
-      <ul class="navbar-nav mr-auto">
-        <li class="nav-item active">
-          <a class="nav-link" href="/">Home</a>
-        </li>
-        <li class="nav-item active">
-          <a class="nav-link" href="{% url 'exotic_cuisine:posts' %}"
-            >Manage Post</a
-          >
-        </li>
-      </ul>
-    </div>
-  </nav>
-</div>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="/">Home <span class="sr-only"></span></a>
+      </li>
+      <li class="nav-item active">
+        <a href="{% url 'exotic_cuisine:posts' %}" class="nav-link"
+          >Manag Posts</a
+        >
+      </li>
+    </ul>
+  </div>
+</nav>
