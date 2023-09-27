@@ -1,7 +1,8 @@
 from .models import exotic_cuisine  # crud
+from django.urls import reverse_lazy  # crud
 from django.views.generic import ListView, DeleteView, UpdateView
-from .models import Reservation
-from .models import Bookings
+# from .models import Reservation
+# from .models import Bookings
 from django.shortcuts import render
 # from django.http import HttpResponse
 # from django.views.generic.base import TemplateView
@@ -25,6 +26,13 @@ class PostsView(ListView):
     model = exotic_cuisine
     template_name = 'posts.html'
     context_object_name = 'post_list'
+
+
+class AddView(CreateView):
+    model = exotic_cuisine
+    template_name = 'add.html'
+    fields = '__all__'
+    success_url = reverse_lazy('exotic_cuisine:posts')
 
 
 # def get_base(request):
