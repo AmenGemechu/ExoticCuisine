@@ -7,7 +7,7 @@ app_name = 'exotic_cuisine'
 # are read top to bottom
 urlpatterns = [
     path('register/', views.registerPage, name='register'),
-    # path('login/', views.loginPage, name='login'),
+    path('login/', views.loginPage, name='login'),
 
     path('', views.IndexView.as_view(), name='index'),
     path('add/', views.AddView.as_view(), name='add'),

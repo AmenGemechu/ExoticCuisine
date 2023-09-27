@@ -1,7 +1,7 @@
 from .models import exotic_cuisine  # crud
 from django.views.generic import ListView, DeleteView, UpdateView, CreateView  # crud
 from django.urls import reverse_lazy  # crud
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.contrib.auth.forms import UserCreationForm
 from .forms import PostForm, CreateUserForm
 
@@ -59,9 +59,15 @@ def registerPage(request):
         form = CreateUserForm(request.POST)
         if form.is_valid():
             form.save()
+            return redirect('login')
 
     context = {'form': form}
     return render(request, 'register.html', context)
+
+
+def loginPage(request):
+    context = {}
+    return render(request, 'login.html', context)
 
 
 # def get_base(request):
