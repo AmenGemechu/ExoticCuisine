@@ -2,9 +2,10 @@ from .models import exotic_cuisine  # crud
 from django.views.generic import ListView, DeleteView, UpdateView, CreateView  # crud
 from django.urls import reverse_lazy  # crud
 from django.shortcuts import render
+from django.contrib.auth.forms import UserCreationForm
+from .forms import PostForm, CreateUserForm
 
-# from .models import Reservation
-# from .models import Bookings
+
 # from django.http import HttpResponse
 # from django.views.generic.base import TemplateView
 
@@ -49,6 +50,18 @@ class DeleteView(DeleteView):
     pk_url_kwarg = 'pk'
     template_name = "confirm-delete.html"
     success_url = reverse_lazy('exotic_cuisine:posts')
+
+
+def registerPage(request):
+    form = CreateUserForm()
+
+    if request.method == 'POST':
+        form = CreateUserForm(request.POST)
+        if form.is_valid():
+            form.save()
+
+    context = {'form': form}
+    return render(request, 'register.html', context)
 
 
 # def get_base(request):
