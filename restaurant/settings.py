@@ -17,7 +17,9 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
+
+X_FRAME_OPTIONS = 'SAMEORIGIN'
 
 ALLOWED_HOSTS = ['8000-amengemechu-pp4-restaura-op42m48vlb.us2.codeanyapp.com',
                  'restaurant-exotic-cuisine-7d2d24292bd7.herokuapp.com', 'localhost']
