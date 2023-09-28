@@ -3,7 +3,9 @@ from django.views.generic import ListView, DeleteView, UpdateView, CreateView  #
 from django.urls import reverse_lazy  # crud
 from django.shortcuts import render, redirect
 from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth import authenticate, login, logout  # crud remove authenticate
 from .forms import PostForm, CreateUserForm
+from django.contrib import messages
 
 
 # from django.http import HttpResponse
@@ -65,20 +67,6 @@ def registerPage(request):
     return render(request, 'register.html', context)
 
 
-def loginPage(request):
+def login_user(request):
     context = {}
     return render(request, 'login.html', context)
-
-
-# def get_base(request):
- #   return render(request, 'home.html')
-
-
-# def get_base(request):
- #   return render(request, 'reservation.html')
-
-
-# def allbookings(request):
- #   bookings = Bookings.objects.all()
-  #  return render(request, 'test.html',
-   #               {'bookings': bookings})
