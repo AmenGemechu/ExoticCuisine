@@ -1,6 +1,7 @@
 from pathlib import Path
 import os
 import dj_database_url
+# import django_heroku
 if os.path.isfile('env.py'):
     import env
 
@@ -19,7 +20,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-X_FRAME_OPTIONS = 'SAMEORIGIN'
+# X_FRAME_OPTIONS = 'SAMEORIGIN'
 
 ALLOWED_HOSTS = ['8000-amengemechu-pp4-restaura-op42m48vlb.us2.codeanyapp.com',
                  'restaurant-exotic-cuisine-7d2d24292bd7.herokuapp.com', 'localhost']
@@ -126,7 +127,7 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
-MEDIA_URL = '/media/'
+# MEDIA_URL = '/media/'
 # DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
 # Default primary key field type
