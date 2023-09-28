@@ -68,5 +68,19 @@ def registerPage(request):
 
 
 def login_user(request):
-    context = {}
-    return render(request, 'login.html', context)
+    if request.method == "POST":
+        username = request.POST["username"]
+        password = request.POST["password"]
+        user = authenticate(request, username=username, password=password)
+        if user is not None:
+            login(request, user)
+            return redirect('/')
+            # Redirect to a success page.
+
+        else:
+            # Return an 'invalid login' error message.
+            messages.success(
+                request, "There was an Error Logingin. Try again..")
+            return redirect('exotic_cuisine:login')
+    else:
+        return render(request, 'login.html', {})
