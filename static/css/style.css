@@ -1,6 +1,6 @@
 body {
     font-family: "Roboto", sans-serif;
-    color: rgb(92, 87, 87);
+    color: rgb(199, 190, 190);
     line-height: 1.7;
     background-color: #9cb4ac;
 }
@@ -25,6 +25,15 @@ h6 {
     padding-top: 2%;
     padding-left: 2%;
     width: 100%;
+    background-color: rgba(0, 0, 0, 0.76);
+}
+
+.navbar a {
+    color: rgb(199, 190, 190);
+}
+
+.navbar button {
+    background-color: rgb(199, 190, 190);
 }
 
 nav .navbar-brand {
