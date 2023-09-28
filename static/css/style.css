@@ -1,7 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Spline+Sans:wght@400;500;600;700&display=swap');
-
 body {
-    font-family: "Spline Sans", sans-serif;
+    font-family: "Roboto", sans-serif;
     color: rgb(92, 87, 87);
     line-height: 1.7;
     background-color: #9cb4ac;
@@ -24,6 +22,8 @@ h6 {
 }
 
 .navbar {
+    padding-top: 2%;
+    padding-left: 2%;
     width: 100%;
 }
 
@@ -38,18 +38,13 @@ nav .navbar-brand {
     margin-right: 10px;
 }
 
+/*Navbar Posts*/
+#navbarNav a {
+    color: #9cb4ac
+}
+
 img {
     width: 80%;
-}
-
-/*Home*/
-.slide-1 {
-    background: url("../images/dish2.jpg");
-    width: 100%;
-}
-
-.slide-2 {
-    background: url("../images/dish3.jpg");
 }
 
 .bg-cover {
@@ -69,7 +64,7 @@ img {
 /* Footer */
 footer {
     background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(../images/restaurant.jpg);
-    padding-top: 120px;
+    padding-top: 100px;
     padding-bottom: 30px;
 }
 
@@ -77,15 +72,9 @@ footer {
     margin-bottom: 30px;
 }
 
-footer p,
-footer h6,
-footer a {
+footer p {
     color: rgba(255, 255, 255, 0.75);
-}
-
-footer .social-links a {
-    font-size: 24px;
-    margin-right: 10px;
+    width: 60%;
 }
 
 footer img {
@@ -95,59 +84,4 @@ footer img {
 .footer-bottom {
     padding-top: 30px;
     border-top: 1px solid rgba(255, 255, 255, 0.4);
-}
-
-/*Registration*/
-.user_card {
-    width: 350px;
-    margin-top: auto;
-    margin-bottom: auto;
-    background: #74cfbf;
-    position: relative;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    padding: 10px;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),
-        0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    -moz-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),
-        0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    border-radius: 5px;
-}
-
-.form_container {
-    margin-top: 20px;
-}
-
-#form-title {
-    color: #fff;
-}
-
-.login_btn {
-    width: 100%;
-    background: #33ccff !important;
-    color: white !important;
-}
-
-.login_btn:focus {
-    box-shadow: none !important;
-    outline: 0px !important;
-}
-
-.login_container {
-    padding: 0 2rem;
-}
-
-.input-group-text {
-    background: #f7ba5b !important;
-    color: white !important;
-    border: 0 !important;
-    border-radius: 0.25rem 0 0 0.25rem !important;
-}
-
-.input_user,
-.input_pass:focus {
-    box-shadow: none !important;
-    outline: 0px !important;
 }

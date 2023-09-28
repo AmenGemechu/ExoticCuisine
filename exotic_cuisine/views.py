@@ -1,18 +1,14 @@
-from .models import exotic_cuisine  # crud
-from django.views.generic import ListView, DeleteView, UpdateView, CreateView  # crud
-from django.urls import reverse_lazy  # crud
-from django.shortcuts import render, redirect
-from django.contrib.auth.forms import UserCreationForm
-from django.contrib.auth import authenticate, login, logout  # crud remove authenticate
-from .forms import PostForm, CreateUserForm
 from django.contrib import messages
+from .forms import PostForm, CreateUserForm
+from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.forms import UserCreationForm
+from django.shortcuts import render, redirect
+from django.urls import reverse_lazy
+from django.views.generic import ListView, DeleteView, UpdateView, CreateView
+from .models import exotic_cuisine
 
 
-# from django.http import HttpResponse
-# from django.views.generic.base import TemplateView
-
-
-# All posts
+# Posts
 class IndexView(ListView):
     model = exotic_cuisine
     template_name = 'index.html'
@@ -84,3 +80,9 @@ def login_user(request):
             return redirect('exotic_cuisine:login')
     else:
         return render(request, 'login.html', {})
+
+
+def logout_user(request):
+    logout(request)
+    messages.success(request, ("You are Logged Out!"))
+    return redirect('/')

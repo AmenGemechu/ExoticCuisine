@@ -22,9 +22,15 @@
           >Manag Posts</a
         >
       </li>
+      {% if user.is_authenticated %}
+      <li class="nav-item active">
+        <a href="{% url 'exotic_cuisine:logout' %}" class="nav-link">Logout</a>
+      </li>
+      {% else %}
       <li class="nav-item active">
         <a href="{% url 'exotic_cuisine:login' %}" class="nav-link">Login</a>
       </li>
+      {% endif %}
       <li class="nav-item active">
         <a href="{% url 'exotic_cuisine:register' %}" class="nav-link"
           >Register</a

@@ -2,7 +2,13 @@
 {% load widget_tweaks %}
 
 {% block content %}
-
+<style>
+    .pt-5 {
+        background-color: #9cb4ac;
+        padding: 10%;
+    }
+    
+</style>
 <div class="container pt-5">
 
 
@@ -17,8 +23,8 @@
             {% endfor %}
 
         </div>
-
         {% endfor %}
+        <br>
         <div class="form-group">
             <button type="submit" class="btn btn-success">
                 <span class="<i class="fas fa-check-circle"></i></span>Edit

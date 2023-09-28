@@ -2,6 +2,19 @@
 {% extends 'base.html' %}
 
 {% block content %}
+<style>
+    .mt-4 {
+        background-color: #9cb4ac;
+        padding: 2%;
+    }
+    .d-flex a {
+        background-color: black;
+        color: #9cb4ac;
+        width: 70px;
+        margin: 2%;
+        padding: 2%;
+    }
+</style>
 
 {% if form.errors %}
 <div class="alert alert-warning alert-dismissible fade show" role="alert">
@@ -23,8 +36,8 @@
 
     </form>
     <div class="mt-4">
+        <h6>Already have an account?</h6>
         <div class="d-flex justify-content-center links">
-            Already have an account?
             <a href="{% url 'exotic_cuisine:login' %}" class="nav-link">Login</a>
         </div>
     </div>
