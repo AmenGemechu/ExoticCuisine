@@ -18,7 +18,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 # X_FRAME_OPTIONS = 'SAMEORIGIN'
 
@@ -34,11 +34,12 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
-    # 'cloudinary_storage',
+    'cloudinary_storage',
     'django.contrib.staticfiles',
-    # 'cloudinary',
+    'cloudinary',
     'exotic_cuisine',
     'widget_tweaks',
+    'django_summernote',
 ]
 
 MIDDLEWARE = [
@@ -81,10 +82,10 @@ WSGI_APPLICATION = 'restaurant.wsgi.application'
 #      'NAME': BASE_DIR / 'db.sqlite3',
 #   }
 # }
+
 DATABASES = {
     'default': dj_database_url.parse(os.environ.get("DATABASE_URL"))
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
@@ -123,20 +124,20 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
 STATIC_URL = '/static/'
-# STATICFILES_STORAGE = 'cloudinary_storage.storage.StaticHashedCloudinaryStorage'
+STATICFILES_STORAGE = 'cloudinary_storage.storage.StaticHashedCloudinaryStorage'
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
-# MEDIA_URL = '/media/'
-# DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+MEDIA_URL = '/media/'
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-
-# ENV Vars for Development here:
-CLOUDNIARY_URL = "cloudinary://277282532975465:O76jac5XZGPZkR9tTuVSqQyJ1vU@djrlbosvd"
-DATABASE_URL = "postgres://wvnuwzef:c5WLNT1l3h4ClJVIG4Lrv0pL6eZC_Qqu@tai.db.elephantsql.com/wvnuwzef"
-SECRET_KEY = "@exotic-cuisine-secret-key"
+CLOUDINARY_STORAGE = {
+    'CLOUD_NAME': '',
+    'API_KEY': '277282532975465',
+    'API_SECRET': 'O76jac5XZGPZkR9tTuVSqQyJ1vU',
+}
