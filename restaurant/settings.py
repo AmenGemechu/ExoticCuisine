@@ -23,7 +23,7 @@ DEBUG = False
 # X_FRAME_OPTIONS = 'SAMEORIGIN'
 
 ALLOWED_HOSTS = ['8000-amengemechu-pp4-restaura-op42m48vlb.us2.codeanyapp.com',
-                 'restaurant-exotic-cuisine-7d2d24292bd7.herokuapp.com', 'localhost']
+                 'restaurant-exotic-cuisine-7d2d24292bd7.herokuapp.com', 'localhost', '*']
 
 
 # Application definition
@@ -134,3 +134,9 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+# ENV Vars for Development here:
+CLOUDNIARY_URL = "cloudinary://277282532975465:O76jac5XZGPZkR9tTuVSqQyJ1vU@djrlbosvd"
+DATABASE_URL = "postgres://wvnuwzef:c5WLNT1l3h4ClJVIG4Lrv0pL6eZC_Qqu@tai.db.elephantsql.com/wvnuwzef"
+SECRET_KEY = "@exotic-cuisine-secret-key"
