@@ -1,3 +1,40 @@
+# _Exotic Cuisine CRUD App_
+Exotic Cuisine is a food blog app built with Django where users can sign up, create posts, view other people's post, like, coment, update and delete posts.
+
+The aim of this project is create a platform where people can share thier exotic food experiences with others and discover new restaurants and dishes.
+## Tools & Technologies Used
+
+- **HTML** used for the main site content.
+- **CSS** used for the site design and layout styles throughout the site.
+- [Bootstrap](https://getbootstrap.com) used as the front-end CSS framework for modern responsiveness and pre-built components.
+- **JavaScript** used for user interaction and notifications.
+- **Python** used as the back-end programming language.
+- **Git**used for version control.
+- **GitHub** used for online code storage.
+- **Codeanywhere** used as a cloud-based IDE for development.
+- [Django](https://www.djangoproject.com) used as the Python framework for the site.
+- [PostgreSQL](https://www.postgresql.org) used as the relational database management.
+- [Heroku](https://www.heroku.com) used for hosting the deployed back-end site.
+- [Cloudinary](https://cloudinary.com) used for online static file storage.
+- [Pexels](https://www.pexels.com/) used to for the images on page.
+- [Balsamiq](https://balsamiq.com/wireframes) used to design my site wireframes.
+
+  
+### Models
+
+- **Allauth User Model**
+    - The User model was built using **Django's Allauth library**
+
+
+## Agile Development Process
+
+### GitHub Projects
+
+**GitHub** Projects served as an Agile tool for this project.
+
+To create user stories and map out the development progress of the project.
+
+
 ![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
 
 Welcome,

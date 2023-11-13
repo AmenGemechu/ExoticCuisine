@@ -1,10 +1,10 @@
 ---
 name: User Story
-about: User story template
-title: User Story
+about: This is the default user story template
+title: User Story <TITLE>
 labels: ''
-assignees: AmenGemechu
+assignees: ''
 
 ---
 
-As a **user** i can **post** my story and **share** with others
+View post list: As a **Site User  i can **view a list of posts**.
