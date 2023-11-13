@@ -5,8 +5,8 @@ from django.contrib.auth.forms import UserCreationForm
 from django.shortcuts import render, redirect
 from django.urls import reverse_lazy
 from django.views.generic import ListView, DeleteView, UpdateView, CreateView
-from .models import exotic_cuisine
-from danjo.views import generic
+from .model import exotic_cuisine
+from django.views import generic
 from .model import Post
 
 
