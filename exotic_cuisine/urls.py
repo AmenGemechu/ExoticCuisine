@@ -6,6 +6,7 @@ app_name = 'exotic_cuisine'
 
 # are read top to bottom
 urlpatterns = [
+    path('', views.PostList.as_view(), name='home'),
     path('register/', views.registerPage, name='register'),
     path('login_user/', views.login_user, name='login'),
     path('logout_user', views.logout_user, name='logout'),
