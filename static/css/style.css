@@ -1,96 +1,142 @@
 body {
-    font-family: "Roboto", sans-serif;
-    color: rgb(199, 190, 190);
-    line-height: 1.7;
-    background-color: #9cb4ac;
+    background-color: #F9FAFC;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-    font-weight: 600;
-    color: #222;
+.brand {
+    font-family: Lato, sans-serif;
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #4A4A4F;
 }
 
-/*Navbar*/
-.container-fluide {
-    padding-left: 30px;
-    padding-right: 0;
+.red-o {
+    color: #E84610;
 }
 
-.navbar {
-    padding-top: 2%;
-    padding-left: 2%;
+.thin {
+    font-weight: 300;
+}
+
+.light-bg {
+    background-color: #fff;
+}
+
+.dark-bg {
+    background-color: #445261;
+}
+
+.main-bg {
+    background-color: #F9FAFC;
+}
+
+.card {
+    border: none;
+    background-color: transparent;
+}
+
+.image-container {
+    position: relative;
+}
+
+.image-flash {
+    position: absolute;
+    bottom: 5%;
+    min-width: 30%;
+    left: -2px;
+    background-color: #23BBBB;
+}
+
+.author {
+    color: white;
+    margin: 4px;
+    text-transform: uppercase;
+}
+
+.masthead {
+    margin-top: 10px;
+    overflow: hidden;
+    position: relative;
+    display: inline-block;
+    height: 33vh;
     width: 100%;
-    background-color: rgba(0, 0, 0, 0.76);
 }
 
-.navbar a {
-    color: rgb(199, 190, 190);
+.masthead-text {
+    background-color: #445261;
+    color: white;
+    position: relative;
 }
 
-.navbar button {
-    background-color: rgb(199, 190, 190);
+.masthead-image {
+    position: relative;
+    overflow: hidden;
 }
 
-nav .navbar-brand {
-    width: 70%;
-    padding-left: 2%;
+.masthead-image:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 90%;
+    height: 100%;
+    width: 150%;
+    background: #445261;
+    -webkit-transform: skew(15deg);
+    -moz-transform: skew(15deg);
+    transform: skew(15deg);
+    z-index: 100;
 }
 
-.navbar-toggle {
-    width: 10%;
-    border: 0;
-    margin-right: 10px;
+.post-link {
+    text-decoration: none;
+    color: #445261;
 }
 
-/*Navbar Posts*/
-#navbarNav a {
-    color: #9cb4ac
+.post-link:hover,
+.page-link {
+    color: #E84610;
 }
 
-img {
-    width: 80%;
+.post-title {
+    margin-top: 20%;
+    margin-left: 5%;
 }
 
-.bg-cover {
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
+.post-subtitle {
+    margin-left: 5%;
+    color: lightgray;
 }
 
-.carousel-control-prev,
-.carousel-control-next {
-    background-color: rgba(0, 0, 0, 0.6);
-    width: 40px;
-    height: 70px;
-    margin: auto;
+.btn-signup {
+    background-color: #23BBBB;
+    color: #fff;
 }
 
-/* Footer */
-footer {
-    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(../images/restaurant.jpg);
-    padding-top: 100px;
-    padding-bottom: 30px;
+.btn-signup:hover,
+.btn-signup:active {
+    background-color: #fff;
+    color: #23BBBB;
 }
 
-.footer-top {
-    margin-bottom: 30px;
+.link {
+    color: #23BBBB;
+    text-decoration: none;
 }
 
-footer p {
-    color: rgba(255, 255, 255, 0.75);
-    width: 60%;
+.link:hover,
+.link:active {
+    color: #445261;
+    text-decoration: underline;
 }
 
-footer img {
-    max-width: 175px;
+.btn-like {
+    color: #E84610;
+    border: none;
+    background: transparent;
 }
 
-.footer-bottom {
-    padding-top: 30px;
-    border-top: 1px solid rgba(255, 255, 255, 0.4);
+.btn-like:hover,
+.btn-like:active {
+    color: #E84610;
+    background: transparent;
+    border: none;
 }

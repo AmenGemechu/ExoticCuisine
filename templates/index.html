@@ -1,37 +1,12 @@
-{% extends "base.html" %} {% block content %}
+index {% extends "base.html" %} {% block content %}
 
-<div class="album py-5 bg-light">
-  <div class="container">
-    <div class="row">
-      {% for exotic_cuisine in index %}
-      <div class="col-md-4">
-        <div class="card mb-4 box-shadow">
-          <img
-            class="card-img-top"
-            src="https://images.pexels.com/photos/958545/pexels-photo-958545.jpeg?auto=compress&cs=tinysrgb&w=600"
-            alt="Creamy chicken"
-          />
-          <img
-            src="https://res.cloudinary.com/djrlbosvd/image/upload/v1694949741/samples/dessert-on-a-plate.jpg"
-          />
-          <div class="card-body">
-            <h4 class="">
-              <a href="{{ exotic_cuisine.get_absolute_url }}"
-                >{{ exotic_cuisine.title }}</a
-              >
-            </h4>
-            <p class="card-text"></p>
-            <div class="d-flex justify-content-between align-items-center">
-              <div>
-                <small class="text-muted"></small>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      {% endfor %}
+<div class="container-fluid">
+  <div class="row">
+    <!-- Blog Entries Column -->
+    <div class="col-12 mt-3 left">
+      <div class="row"></div>
     </div>
   </div>
 </div>
 
-{% endblock%}
+{%endblock%}
