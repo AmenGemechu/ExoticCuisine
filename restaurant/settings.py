@@ -1,8 +1,8 @@
 from pathlib import Path
 import os
-import dj_database_url
 # import django_heroku
-if os.path.isfile('env.py'):
+import dj_database_url
+if os.path.isfile("env.py"):
     import env
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -34,6 +34,10 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
+    'django.contrib.sites',
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
     'cloudinary_storage',
     'django.contrib.staticfiles',
     'cloudinary',
@@ -41,6 +45,13 @@ INSTALLED_APPS = [
     'widget_tweaks',
     'django_summernote',
 ]
+
+
+SITE_ID = 1
+
+LOGIN_REDIRECT_URL = '/'
+LOGOUT_REDIRECT_URL = '/'
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -50,6 +61,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    # Downloaded Middleware
+    'allauth.account.middleware.AccountMiddleware',
 ]
 
 ROOT_URLCONF = 'restaurant.urls'
@@ -141,3 +154,6 @@ CLOUDINARY_STORAGE = {
     'API_KEY': '277282532975465',
     'API_SECRET': 'O76jac5XZGPZkR9tTuVSqQyJ1vU',
 }
+
+
+ACCOUNT_EMAIL_VERIFICATION = 'none'
