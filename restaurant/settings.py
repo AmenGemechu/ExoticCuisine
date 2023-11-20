@@ -137,7 +137,7 @@ DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 CLOUDINARY_STORAGE = {
-    'CLOUD_NAME': '',
+    'CLOUD_NAME': 'exotic',
     'API_KEY': '277282532975465',
     'API_SECRET': 'O76jac5XZGPZkR9tTuVSqQyJ1vU',
 }

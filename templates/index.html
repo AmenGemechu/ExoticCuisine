@@ -1,4 +1,4 @@
-index {% extends "base.html" %} {% block content %}
+{% extends "base.html" %} {% block content %}
 
 <div class="container-fluid">
   <div class="row">
@@ -13,7 +13,7 @@ index {% extends "base.html" %} {% block content %}
                 {% if "placeholder" in post.featured_image.url %}
                 <img
                   class="card-img-top"
-                  src="https://codeinstitute.s3.amazonaws.com/fullstack/blog/default.jpg"
+                  src="https://res.cloudinary.com/djrlbosvd/image/upload/v1696237177/chicken_sque_zu40sw.jpg"
                 />
                 {% else %}
                 <img
@@ -22,7 +22,7 @@ index {% extends "base.html" %} {% block content %}
                 />
                 {% endif %}
                 <div class="image-flash">
-                  <p class="author">Author: {{ post.author }}</p>
+                  <p class="author">By: {{ post.author }}</p>
                 </div>
               </div>
               <a href="#" class="post-link">
