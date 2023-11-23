@@ -41,9 +41,10 @@ INSTALLED_APPS = [
     'cloudinary_storage',
     'django.contrib.staticfiles',
     'cloudinary',
-    'exotic_cuisine',
     'widget_tweaks',
     'django_summernote',
+    'crispy_forms',
+    'exotic_cuisine',
 ]
 
 
@@ -51,6 +52,8 @@ SITE_ID = 1
 
 LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/'
+
+CRISPY_tEMPLATE_PACK = 'bootstrap4'
 
 
 MIDDLEWARE = [
