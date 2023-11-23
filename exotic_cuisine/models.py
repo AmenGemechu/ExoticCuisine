@@ -12,7 +12,7 @@ class Post(models.Model):
     title = models.CharField(max_length=200, unique=True)
     slug = models.SlugField(max_length=200, unique=True)
     author = models.ForeignKey(
-        User, on_delete=models.CASCADE, related_name="blog_posts"
+        User, on_delete=models.CASCADE, related_name="posts"
     )
     updated_on = models.DateTimeField(auto_now=True)
     content = models.TextField()
@@ -21,7 +21,7 @@ class Post(models.Model):
     created_on = models.DateTimeField(auto_now_add=True)  # ecending order
     status = models.IntegerField(choices=STATUS, default=0)
     likes = models.ManyToManyField(
-        User, related_name='blogpost_like', blank=True)
+        User, related_name='post_like', blank=True)
 
     class Meta:
         ordering = ["-created_on"]

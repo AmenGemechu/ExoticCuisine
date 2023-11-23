@@ -33,9 +33,38 @@
         <p class="card-text">{{ post.content | safe }}</p>
         <div class="row">
           <div class="col-1">
-            <!-- The number of likes goes before the closing strong tag -->
-            <strong class="text-secondary"
-              ><i class="far fa-heart"></i> {{ post.number_of_likes }}
+            <strong>
+              {% if user.is_authenticated %}
+              <form
+                class="d-inline"
+                action="{% url 'exotic_cuisine:post_like' post.slug %}"
+                method="POST"
+              >
+                {% csrf_token %} {% if liked %}
+                <button
+                  type="submit"
+                  name="blogpost_id"
+                  value="{{post.slug}}"
+                  class="btn-like"
+                >
+                  <i class="fas fa-heart"></i>
+                </button>
+                {% else %}
+                <button
+                  type="submit"
+                  name="blogpost_id"
+                  value="{{post.slug}}"
+                  class="btn-like"
+                >
+                  <i class="far fa-heart"></i>
+                </button>
+                {% endif %}
+              </form>
+              {% else %}
+              <span class="text-secondary"><i class="far fa-heart"></i></span>
+              {% endif %}
+              <!-- The number of likes goes before the closing strong tag -->
+              <span class="text-secondary">{{ post.number_of_likes }} </span>
             </strong>
           </div>
           <div class="col-1">
@@ -81,9 +110,10 @@
     </div>
     <div class="col-md-4 card mb-4 mt-3">
       <div class="card-body">
+        <!-- For later -->
         {% if commented %}
         <div class="alert alert-success" role="alert">
-          Your comment is aiting to be approved.
+          Your comment is awaiting approval
         </div>
         {% else %} {% if user.is_authenticated %}
 

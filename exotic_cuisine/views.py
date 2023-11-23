@@ -1,6 +1,9 @@
-from django.shortcuts import render, get_object_or_404  # redirect
+from django.shortcuts import render, get_object_or_404, reverse
 from django.views import generic, View
+from django.http import HttpResponseRedirect
 from .models import Post
+from .forms import CommentForm
+# old
 from django.views.generic import ListView, DeleteView, UpdateView, CreateView
 from django.urls import reverse_lazy
 from django.contrib.auth.forms import UserCreationForm
@@ -8,7 +11,6 @@ from django.contrib.auth import authenticate, login, logout
 from .forms import PostForm, CreateUserForm
 from django.contrib import messages
 # from .model import exotic_cuisine
-from .forms import CommentForm
 
 
 class PostList(generic.ListView):
@@ -72,6 +74,18 @@ class PostDetail(View):
         )
 
 
+class PostLike(View):
+
+    def post(self, request, slug, *args, **kwargs):
+        post = get_object_or_404(Post, slug=slug)
+        if post.likes.filter(id=request.user.id).exists():
+            post.likes.remove(request.user)
+        else:
+            post.likes.add(request.user)
+
+        return HttpResponseRedirect(reverse('post_detail', args=[slug]))
+
+
 # Posts
 # class IndexView(ListView):
 #    model = exotic_cuisine
@@ -114,17 +128,17 @@ class PostDetail(View):
 #    success_url = reverse_lazy('exotic_cuisine:posts')
 
 
-def registerPage(request):
-    form = CreateUserForm()
+# def registerPage(request):
+#    form = CreateUserForm()
 
-    if request.method == 'POST':
-        form = CreateUserForm(request.POST)
-        if form.is_valid():
-            form.save()
-            return redirect('login')
+#    if request.method == 'POST':
+#        form = CreateUserForm(request.POST)
+#        if form.is_valid():
+#            form.save()
+        # return redirect('login')
 
-    context = {'form': form}
-    return render(request, 'register.html', context)
+#    context = {'form': form}
+#    return render(request, 'register.html', context)
 
 
 def login_user(request):
