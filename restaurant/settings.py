@@ -1,5 +1,6 @@
 from pathlib import Path
 import os
+from django.contrib.messages import constants as messages
 # import django_heroku
 import dj_database_url
 if os.path.isfile("env.py"):
@@ -55,6 +56,13 @@ LOGOUT_REDIRECT_URL = '/'
 
 CRISPY_tEMPLATE_PACK = 'bootstrap4'
 
+MESSAGE_TAGS = {
+    messages.DEBUG: 'alert-info',
+    messages.INFO: 'alert-info',
+    messages.SUCCESS: 'alert-success',
+    messages.WARNING: 'alert-warning',
+    messages.ERROR: 'alert-danger',
+}
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
