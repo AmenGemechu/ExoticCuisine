@@ -4,7 +4,7 @@ from django.http import HttpResponseRedirect
 from .models import Post
 from .forms import CommentForm
 # old
-from django.views.generic import ListView, DeleteView, UpdateView, CreateView
+from django.views.generic import ListView, DeleteView, CreateView, UpdateView
 from django.urls import reverse_lazy
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import authenticate, login, logout
@@ -87,9 +87,23 @@ class PostLike(View):
         return HttpResponseRedirect(reverse('exotic_cuisine:post_detail', args=[slug]))
 
 
-# Posts
+class ArticleDetailView(PostDetail):
+    model = Post
+    template_name = 'article_details.html'
+
+
+# codemy
+class AddPostView(CreateView):
+    model = Post
+    template_name = 'add_post.html'
+    # fields = '__all__'
+    # success_url = reverse_lazy('exotic_cuisine:posts')
+    fields = ('title', 'content', 'featured_image')
+
+
+# HomeView
 # class IndexView(ListView):
-#    model = exotic_cuisine
+#    model = Post
 #    template_name = 'index.html'
 #    context_object_name = 'index'
 
@@ -136,7 +150,7 @@ class PostLike(View):
 #        form = CreateUserForm(request.POST)
 #        if form.is_valid():
 #            form.save()
-        # return redirect('login')
+    # return redirect('login')
 
 #    context = {'form': form}
 #    return render(request, 'register.html', context)

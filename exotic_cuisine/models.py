@@ -16,7 +16,8 @@ class Post(models.Model):
     )
     updated_on = models.DateTimeField(auto_now=True)
     content = models.TextField()
-    featured_image = CloudinaryField('image', default='placeholder')
+    featured_image = CloudinaryField(
+        'image', default='placeholder')        # change default image
     excerpt = models.TextField(blank=True)
     created_on = models.DateTimeField(auto_now_add=True)  # ecending order
     status = models.IntegerField(choices=STATUS, default=0)
@@ -27,7 +28,12 @@ class Post(models.Model):
         ordering = ["-created_on"]
 
     def __str__(self):
-        return self.title
+        return self.title + ' ' + str(self.author)
+
+    # redirect url
+    def get_absolute_url(self):
+        return reverse('exotic_cuisine:home')
+        # return reverse('exotic_cuisine:article_detail_post', args=(str(self.id)))
 
     def number_of_likes(self):
         return self.likes.count()
@@ -76,30 +82,30 @@ def __str__(self):
     return self.title
 
 
-class Bookings(models.Model):
-    username = models.CharField(max_length=50)
-    table_id = models.IntegerField(null=False)
-    bdate = models.DateTimeField()
-    timeslot = models.IntegerField(null=False)
+# class Bookings(models.Model):
+#    username = models.CharField(max_length=50)
+#    table_id = models.IntegerField(null=False)
+#    bdate = models.DateTimeField()
+#    timeslot = models.IntegerField(null=False)
 
 
-class Users(models.Model):
-    firstname = models.CharField(max_length=20)
-    laststname = models.CharField(max_length=20)
+# class Users(models.Model):
+#    firstname = models.CharField(max_length=20)
+#    laststname = models.CharField(max_length=20)
 
 
-class Test2(models.Model):
-    username2 = models.CharField(max_length=50)
-    table_id2 = models.IntegerField(null=False)
-    bdate2 = models.DateTimeField()
-    timeslot2 = models.IntegerField(null=False)
+# class Test2(models.Model):
+#    username2 = models.CharField(max_length=50)
+#    table_id2 = models.IntegerField(null=False)
+#    bdate2 = models.DateTimeField()
+#    timeslot2 = models.IntegerField(null=False)
 
 
-class Test3(models.Model):
-    username3 = models.CharField(max_length=50)
-    table_id3 = models.IntegerField(null=False)
-    bdate3 = models.DateTimeField()
-    timeslot3 = models.IntegerField(null=False)
+# class Test3(models.Model):
+#    username3 = models.CharField(max_length=50)
+#    table_id3 = models.IntegerField(null=False)
+#    bdate3 = models.DateTimeField()
+#    timeslot3 = models.IntegerField(null=False)
 
 
 # class Reservation(models.Model):
@@ -123,7 +129,3 @@ class Test3(models.Model):
  #   messages.add_message(request, messages.SUCCESS,
  #                        f"Thanks {fname} for making an reservation!")
     # return HttpResponseRedirect(request.path)
-
-
-def __str__(self):
-    return self.username

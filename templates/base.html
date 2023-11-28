@@ -4,7 +4,12 @@
 <html class="h-100">
 
 <head>
-    <title>Exotic Cuisine Food & Restaurant Blog</title>
+
+    <title>
+        {% block title %}
+            Exotic Cuisine Food & Restaurant Blog
+        {% endblock title %}
+    </title>
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
@@ -45,6 +50,9 @@
                         <a class="nav-link" href="{% url 'account_login' %}">Login</a>
                     </li>
                     {% endif %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'exotic_cuisine:add_post' %}">Add Post</a>
+                    </li>
                 </ul>
                 <span class="navbar-text text-muted">
                     Food & Restaurant Blog
