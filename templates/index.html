@@ -37,12 +37,22 @@
               <p class="card-text text-muted h6">
                 {{post.created_on}} <i class="far fa-heart"></i>
                 {{post.number_of_likes}}
+              </p>
+              <button type="button" class="btn btn-primary">
                 <a
                   href="{% url 'exotic_cuisine:update_post' post.pk %}"
                   class="post-link"
                   >Edit</a
                 >
-              </p>
+              </button>
+
+              <button type="button" class="btn btn-danger">
+                <a
+                  href="{% url 'exotic_cuisine:delete_post' post.pk %}"
+                  class="post-link"
+                  >Delete</a
+                >
+              </button>
             </div>
           </div>
         </div>

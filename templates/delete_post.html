@@ -1,0 +1,14 @@
+{% extends 'base.html' %} {% block content %}
+
+<div class="container">
+  <h3>Delete: {{ post.title }}</h3>
+  <br />
+  <br />
+  <form method="POST">
+    {% csrf_token %}
+    <strong>Are you sure you want to </strong>
+    <button class="btn btn-outline-success">Delete Post!</button>
+  </form>
+</div>
+
+{% endblock %}

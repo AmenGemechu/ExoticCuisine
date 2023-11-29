@@ -3,9 +3,9 @@ from django.views import generic, View
 from django.http import HttpResponseRedirect
 from .models import Post
 from .forms import CommentForm
-# old
-from django.views.generic import ListView, DeleteView, CreateView, UpdateView
+from django.views.generic import ListView, CreateView, UpdateView, DeleteView
 from django.urls import reverse_lazy
+#
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import authenticate, login, logout
 from .forms import PostForm, CreateUserForm
@@ -15,7 +15,7 @@ from django.contrib import messages
 
 class PostList(generic.ListView):
     model = Post
-    queryset = Post.objects.filter(status=1).order_by('-created_on')
+    queryset = Post.objects.filter(status=1).order_by('-created_on')    # latest post on top
     template_name = 'index.html'
     paginate_by = 6  # max_post per page
 
@@ -109,6 +109,13 @@ class UpdatePostView(UpdateView):
 #    success_url = reverse_lazy('exotic_cuisine:posts')
 
 
+class DeletePostView(DeleteView):
+    model = Post
+    # pk_url_kwarg = 'pk'
+    template_name = "delete_post.html"
+    success_url = reverse_lazy('exotic_cuisine:home')
+
+
 # HomeView
 # class IndexView(ListView):
 #    model = Post
@@ -133,13 +140,6 @@ class UpdatePostView(UpdateView):
 #    model = exotic_cuisine
 #    template_name = "add.html"
 #    fields = '__all__'
-#    success_url = reverse_lazy('exotic_cuisine:posts')
-
-
-# class DeleteView(DeleteView):
-#    model = exotic_cuisine
-#    pk_url_kwarg = 'pk'
-#    template_name = "confirm-delete.html"
 #    success_url = reverse_lazy('exotic_cuisine:posts')
 
 
