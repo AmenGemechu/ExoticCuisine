@@ -37,6 +37,11 @@
               <p class="card-text text-muted h6">
                 {{post.created_on}} <i class="far fa-heart"></i>
                 {{post.number_of_likes}}
+                <a
+                  href="{% url 'exotic_cuisine:update_post' post.pk %}"
+                  class="post-link"
+                  >Edit</a
+                >
               </p>
             </div>
           </div>

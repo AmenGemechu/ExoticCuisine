@@ -101,6 +101,14 @@ class AddPostView(CreateView):
     fields = ('title', 'content', 'featured_image')
 
 
+class UpdatePostView(UpdateView):
+    model = Post
+    template_name = "update_post.html"
+    fields = ('title', 'content', 'featured_image')
+#    pk_url_kwarg = 'pk'
+#    success_url = reverse_lazy('exotic_cuisine:posts')
+
+
 # HomeView
 # class IndexView(ListView):
 #    model = Post
@@ -125,14 +133,6 @@ class AddPostView(CreateView):
 #    model = exotic_cuisine
 #    template_name = "add.html"
 #    fields = '__all__'
-#    success_url = reverse_lazy('exotic_cuisine:posts')
-
-
-# class EditView(UpdateView):
-#    model = exotic_cuisine
-#    template_name = "edit.html"
-#    fields = '__all__'
-#    pk_url_kwarg = 'pk'
 #    success_url = reverse_lazy('exotic_cuisine:posts')
 
 
