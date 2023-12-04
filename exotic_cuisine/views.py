@@ -112,23 +112,41 @@ class AddPostView(LoginRequiredMixin, CreateView):
     fields = ('title', 'content', 'featured_image')
 
 
-class UpdatePostView(LoginRequiredMixin, UpdateView):
+class UpdatePostView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
     model = Post
     template_name = "update_post.html"
     fields = ('title', 'content', 'featured_image')
-    pk_url_kwarg = 'pk'
-    success_url = reverse_lazy('exotic_cuisine:posts')
+    # pk_url_kwarg = 'pk'
+    # success_url = reverse_lazy('exotic_cuisine:posts')
 
     """
     Edit profile if it's your own
     """
 
+    def test_func(self):
+        return self.get_object().author_id == self.request.user.pk
+
+    def handle_no_permission(self):
+        return redirect('/')
+
+    # def test_func(self):
+    #    if self.get_object().author_id == self.request.user.pk:
+    #        return True
+    #    else:
+    #        return redirect('/')
+        # return False
+
+    # def get_queryset(self, *args, **kwargs):
+    #    return super().get_queryset(*args, **kwargs).filter(
+    #        author=self.request.user
+    #    )
+
 
 class DeletePostView(LoginRequiredMixin, DeleteView):
     model = Post
-    pk_url_kwarg = 'pk'
+    # pk_url_kwarg = 'pk'
     template_name = "delete_post.html"
-    success_url = reverse_lazy('exotic_cuisine:home')
+    # success_url = reverse_lazy('exotic_cuisine:home')
 
 
 def login_user(request):
