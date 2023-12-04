@@ -1,8 +1,7 @@
 {% extends 'base.html' %} {% block title %} {{ post.title }} {% endblock %} {%
-block content %}
-
+block content %} current user: {{ user.id}} post author: {{ post.author.id }}
 <h1>{{ post.title }}</h1>
-<small>By: {{ post.author.first_name }}</small>
+<small>By: {{ post.author.first_name }} </small>
 
 <hr />
 {{ post.body }}

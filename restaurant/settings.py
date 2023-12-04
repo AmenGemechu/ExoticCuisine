@@ -167,4 +167,6 @@ CLOUDINARY_STORAGE = {
 }
 
 
+# LOGIN_URL = 'exotic_cuisine:account/login'
+
 ACCOUNT_EMAIL_VERIFICATION = 'none'

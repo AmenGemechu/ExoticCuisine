@@ -1,4 +1,4 @@
-from django.shortcuts import render, get_object_or_404, reverse
+from django.shortcuts import render, get_object_or_404, reverse, redirect
 from django.views import generic, View
 from django.http import HttpResponseRedirect
 from .models import Post
@@ -11,16 +11,27 @@ from django.contrib.auth import authenticate, login, logout
 from .forms import PostForm, CreateUserForm
 from django.contrib import messages
 # from .model import exotic_cuisine
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.views.generic import TemplateView
+from django.contrib.auth.decorators import login_required
+
+from django.contrib.auth.mixins import UserPassesTestMixin, LoginRequiredMixin
+
+# class RestrictedView(LoginRequiredMixin, TemplateView):
+#    template_name = 'index.html'
 
 
-class PostList(generic.ListView):
+# @login_required(login_url='login')
+
+class PostList(LoginRequiredMixin, generic.ListView):
     model = Post
-    queryset = Post.objects.filter(status=1).order_by('-created_on')    # latest post on top
+    queryset = Post.objects.filter(status=1).order_by(
+        '-created_on')    # latest post on top
     template_name = 'index.html'
     paginate_by = 6  # max_post per page
 
 
-class PostDetail(View):
+class PostDetail(LoginRequiredMixin, View):
 
     def get(self, request, slug, *args, **kwargs):
         queryset = Post.objects.filter(status=1)
@@ -74,7 +85,7 @@ class PostDetail(View):
         )
 
 
-class PostLike(View):
+class PostLike(LoginRequiredMixin, View):
 
     def post(self, request, slug):
         post = get_object_or_404(Post, slug=slug)
@@ -93,67 +104,31 @@ class ArticleDetailView(PostDetail):
 
 
 # codemy
-class AddPostView(CreateView):
+class AddPostView(LoginRequiredMixin, CreateView):
     model = Post
     template_name = 'add_post.html'
     # fields = '__all__'
-    # success_url = reverse_lazy('exotic_cuisine:posts')
+    success_url = reverse_lazy('exotic_cuisine:posts')
     fields = ('title', 'content', 'featured_image')
 
 
-class UpdatePostView(UpdateView):
+class UpdatePostView(LoginRequiredMixin, UpdateView):
     model = Post
     template_name = "update_post.html"
     fields = ('title', 'content', 'featured_image')
-#    pk_url_kwarg = 'pk'
-#    success_url = reverse_lazy('exotic_cuisine:posts')
+    pk_url_kwarg = 'pk'
+    success_url = reverse_lazy('exotic_cuisine:posts')
+
+    """
+    Edit profile if it's your own
+    """
 
 
-class DeletePostView(DeleteView):
+class DeletePostView(LoginRequiredMixin, DeleteView):
     model = Post
-    # pk_url_kwarg = 'pk'
+    pk_url_kwarg = 'pk'
     template_name = "delete_post.html"
     success_url = reverse_lazy('exotic_cuisine:home')
-
-
-# HomeView
-# class IndexView(ListView):
-#    model = Post
-#    template_name = 'index.html'
-#    context_object_name = 'index'
-
-
-# Single post
-# class SingleView(DeleteView):
-#    model = exotic_cuisine
-#    template_name = 'single.html'
-#    context_object_name = 'post'
-
-
-# class PostsView(ListView):
-#    model = exotic_cuisine
-#    template_name = 'posts.html'
-#    context_object_name = 'post_list'
-
-
-# class AddView(CreateView):
-#    model = exotic_cuisine
-#    template_name = "add.html"
-#    fields = '__all__'
-#    success_url = reverse_lazy('exotic_cuisine:posts')
-
-
-# def registerPage(request):
-#    form = CreateUserForm()
-
-#    if request.method == 'POST':
-#        form = CreateUserForm(request.POST)
-#        if form.is_valid():
-#            form.save()
-    # return redirect('login')
-
-#    context = {'form': form}
-#    return render(request, 'register.html', context)
 
 
 def login_user(request):
@@ -178,4 +153,45 @@ def login_user(request):
 def logout_user(request):
     logout(request)
     messages.success(request, ("You are Logged Out!"))
-    return redirect('/')
+    return redirect('exotic_cuisine:login')
+
+
+# Single post
+# class SingleView(DeleteView):
+#    model = exotic_cuisine
+#    template_name = 'single.html'
+#    context_object_name = 'post'
+
+
+# class PostsView(ListView):
+#    model = exotic_cuisine
+#    template_name = 'posts.html'
+#    context_object_name = 'post_list'
+
+
+# class AddView(CreateView):
+#    model = exotic_cuisine
+#    template_name = "add.html"
+#    fields = '__all__'
+#    success_url = reverse_lazy('exotic_cuisine:posts')
+
+
+# def home(request):
+#    form = CreateUserForm()
+
+#    if request.method == 'POST':
+#        form = CreateUserForm(request.POST)
+#        if form.is_valid():
+#            form.save()
+    # return redirect('login')
+
+#    context = {'form': form}
+#    return render(request, 'register.html', context)
+
+
+# HomeView
+# @login_required
+# def home(request):
+#    model = Post
+#    template_name = 'index.html'
+#    context_object_name = 'index'

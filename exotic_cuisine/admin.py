@@ -3,6 +3,7 @@ from .models import exotic_cuisine
 from .models import Post
 from .models import Comment
 from django_summernote.admin import SummernoteModelAdmin
+# from djangosummernote.admin import SummernoteModelAdmin
 # from .models import Bookings, Users, Test2, Test3
 # from .models import Reservation
 

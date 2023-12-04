@@ -2,6 +2,7 @@ from . import views
 # from django. http import HttpResponse
 from django.urls import path
 from .views import ArticleDetailView, AddPostView, UpdatePostView, DeletePostView
+# from .view import redirec_exotic_cuisine
 
 
 app_name = 'exotic_cuisine'
@@ -18,7 +19,7 @@ urlpatterns = [
     path('like/<slug:slug>', views.PostLike.as_view(), name='post_like'),
     # path('register/', views.registerPage, name='register'),
     path('login_user/', views.login_user, name='login'),
-    path('logout_user', views.logout_user, name='logout'),
+    path('logout_user/', views.logout_user, name='logout'),
 
     # path('', views.IndexView.as_view(), name='index'),
     # path('posts/', views.PostsView.as_view(), name='posts'),
