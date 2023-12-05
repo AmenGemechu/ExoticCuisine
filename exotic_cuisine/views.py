@@ -17,6 +17,7 @@ from django.contrib.auth.decorators import login_required
 
 from django.contrib.auth.mixins import UserPassesTestMixin, LoginRequiredMixin
 
+
 # class RestrictedView(LoginRequiredMixin, TemplateView):
 #    template_name = 'index.html'
 
@@ -103,7 +104,6 @@ class ArticleDetailView(PostDetail):
     template_name = 'article_details.html'
 
 
-# codemy
 class AddPostView(LoginRequiredMixin, CreateView):
     model = Post
     template_name = 'add_post.html'
@@ -120,7 +120,7 @@ class UpdatePostView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
     # success_url = reverse_lazy('exotic_cuisine:posts')
 
     """
-    Edit profile if it's your own
+    Ristrict profile edit
     """
 
     def test_func(self):
@@ -142,11 +142,21 @@ class UpdatePostView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
     #    )
 
 
-class DeletePostView(LoginRequiredMixin, DeleteView):
+class DeletePostView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
     model = Post
     # pk_url_kwarg = 'pk'
     template_name = "delete_post.html"
     # success_url = reverse_lazy('exotic_cuisine:home')
+
+    """
+    Ristrict post delete
+    """
+
+    def test_func(self):
+        return self.get_object().author_id == self.request.user.pk
+
+    def handle_no_permission(self):
+        return redirect('/')
 
 
 def login_user(request):

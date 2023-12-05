@@ -2,7 +2,7 @@ from . import views
 # from django. http import HttpResponse
 from django.urls import path
 from .views import ArticleDetailView, AddPostView, UpdatePostView, DeletePostView
-# from .view import redirec_exotic_cuisine
+# from .view import redirect
 
 
 app_name = 'exotic_cuisine'
@@ -24,3 +24,7 @@ urlpatterns = [
     # path('', views.IndexView.as_view(), name='index'),
     # path('posts/', views.PostsView.as_view(), name='posts'),
 ]
+
+
+# handler403 = 'exotic_cuisine.views.my_custom_permission_denied_view'
+# handler404 = "helpers.views.handle_not_found"
